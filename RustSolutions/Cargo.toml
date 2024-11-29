@@ -1,0 +1,16 @@
+[package]
+name = "RustSolutions"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+[[bin]]
+name = "has-duplicates"
+path = "src/has_duplicates.rs"
+
+[[bin]]
+name = "valid-anagrams"
+path = "src/valid_anagrams.rs"
+
+#[[bin]]
