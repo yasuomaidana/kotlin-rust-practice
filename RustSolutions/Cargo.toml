@@ -13,4 +13,8 @@ path = "src/has_duplicates.rs"
 name = "valid-anagrams"
 path = "src/valid_anagrams.rs"
 
+[[bin]]
+name = "anagram-groups"
+path = "src/anagram_groups.rs"
+
 #[[bin]]
