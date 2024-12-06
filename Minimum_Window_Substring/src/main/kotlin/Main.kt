@@ -1,8 +1,8 @@
 package org.example
 
 fun main() {
-    val s = "OUZODYXAZV" 
-    val t = "XYZ"
+    val s = "aaaaaaaaaaaabbbbbcdd" 
+    val t = "abcdd"
     
     val letterCount = t.groupingBy { it }.eachCount()
     
@@ -30,5 +30,6 @@ fun main() {
             currentAnswer = temp
         }
     }
+    currentAnswer.clearHead()
     println(currentAnswer.subString())
 }
