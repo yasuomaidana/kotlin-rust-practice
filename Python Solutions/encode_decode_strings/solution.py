@@ -21,7 +21,6 @@ def decode(s: str) -> List[str]:
             words.append(s[length_start:i])
             length_start = i
             word_length = 0
-            continue
         i+=1
     return words
 

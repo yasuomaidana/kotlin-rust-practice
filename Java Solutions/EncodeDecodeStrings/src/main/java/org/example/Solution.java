@@ -26,27 +26,25 @@ public class Solution {
     }
 
     public List<String> decode(String str) {
-        int subStringLength = 0, subStringIndex = 0;
-        StringBuilder stringLength = new StringBuilder();
-        ArrayList<String> result = new ArrayList<>();
-        for (int i = 0; i < str.length(); i++) {
-            if (subStringLength <= 0){
-                if (str.charAt(i) == '/') {
-                    subStringLength = Integer.parseInt(stringLength.toString());
-                    stringLength = new StringBuilder();
-                    subStringIndex = i + 1;
-                    if (subStringLength == 0) {
-                        result.add("");
-                    }
-                } else {
-                    stringLength.append(str.charAt(i));
+        int i = 0;
+        List<String> result = new ArrayList<>();
+        int wordLength = -1;
+        int slashIndex = 0;
+        while (i < str.length()) {
+            if (wordLength < 0 && str.charAt(i) == '/') {
+                wordLength = Integer.parseInt(str.substring(slashIndex, i));
+                slashIndex = i + 1;
+                if (wordLength == 0) {
+                    result.add("");
+                    wordLength = -1;
                 }
-            } else {
-                subStringLength--;
-                if (subStringLength == 0) {
-                    result.add(str.substring(subStringIndex, i + 1));
-                }
+            } else if (wordLength >= 0) {
+                i = slashIndex + wordLength;
+                result.add(str.substring(slashIndex, i));
+                slashIndex = i;
+                wordLength = -1;
             }
+            i++;
         }
         return result;
     }
