@@ -8,15 +8,21 @@ def decode(s: str) -> List[str]:
     word_length = -1
     length_start = 0
     words = []
-    for i in range(len(s)):
+    i = 0
+    while i < len(s):
         if word_length <= 0 and s[i] == ":":            
             word_length = int(s[length_start:i])
             length_start = i + 1
-        elif word_length == 0:
+            if word_length == 0:
+                words.append("")
+                word_length = -1
+        elif word_length > 0:
+            i = length_start + word_length
             words.append(s[length_start:i])
             length_start = i
-        elif word_length > 0:
-            word_length -= 1
+            word_length = 0
+            continue
+        i+=1
     return words
 
 if __name__ == "__main__":
