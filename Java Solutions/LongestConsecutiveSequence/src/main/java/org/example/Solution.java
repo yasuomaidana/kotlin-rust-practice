@@ -3,7 +3,6 @@ package org.example;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 class Solution {
     public int longestConsecutive(int[] nums) {
